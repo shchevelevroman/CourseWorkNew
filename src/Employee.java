@@ -1,14 +1,33 @@
+import java.util.Objects;
+
 public class Employee {
-    public String fIO;
-    private int employeeID;
-    static int counter = 1;
-    double salary;
-    int department;
-    public int getEmployeeID() {
-        return employeeID;
+    private String fIO;
+    private final long employeeID = counter;
+    private static long counter = 1l;
+    private double salary;
+    private int department;
+
+    public Employee(String fIO, double salary, int department) {
+        this.fIO = fIO;
+        this.salary = salary;
+        if (isDepartment(department)) {
+            this.department = department;
+        }else{
+            System.out.println("Данного отдела не существует");
+        }
+        counter++;
     }
-    public static int getCounter() {
-        return counter;
+    private boolean isDepartment (int department){
+        if( department == 1 || department == 2 || department == 3 || department == 4 || department == 5 ){
+            return true;
+        }
+        return false;
+    }
+    public String getfIO() {
+        return fIO;
+    }
+    public void setfIO(String fIO) {
+        this.fIO = fIO;
     }
     public double getSalary() {
         return salary;
@@ -22,18 +41,21 @@ public class Employee {
     public void setDepartment(int department) {
         this.department = department;
     }
-    public Employee(String fIO, int employeeID, double salary, int department) {
-        this.fIO = fIO;
-        this.employeeID = counter++;
-        this.salary = salary;
-        this.department = department;
-    }
+    @Override
     public String toString() {
-        return "сотрудник: " + fIO + " ID: " + employeeID + " Зароботная плата: " + salary + " номер отдела: " + department;
+        return "Сотрудник: " + fIO + '\'' + ", Табельный номер: " + employeeID + ", Заработная плата: " + String.format("%.2f",salary) + ", номер отдела: " + department;
     }
-    Employee work1 = new Employee(fIO, Employee.getCounter(), 10_000, 1);
-    Employee work2 = new Employee(fIO, Employee.getCounter(), 20_000, 2);
-    Employee work3 = new Employee(fIO, Employee.getCounter(), 30_000, 3);
-    Employee work4 = new Employee(fIO, Employee.getCounter(), 40_000, 4);
-    Employee work5 = new Employee(fIO, Employee.getCounter(), 50_000, 5);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return employeeID == employee.employeeID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeID);
+    }
 }
