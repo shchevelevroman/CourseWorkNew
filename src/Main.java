@@ -1,21 +1,24 @@
+import java.util.Arrays;
+import java.util.IntSummaryStatistics;
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
-        int employeeID = 1;
-        Person person1 = new Person("Иван", "Иванов");
-        Person person2 = new Person("Дмитрий", "Сидоров");
-        Person person3 = new Person("Станислав", "Петров");
-        Person person4 = new Person("Андрей", "Николов");
-        Person person5 = new Person("Василий", "Битов");
-        Employee work1 = new Employee(person1, employeeID,10_000, 1);
-        Employee work2 = new Employee(person2, employeeID, 20_000, 2);
-        Employee work3 = new Employee(person3, employeeID, 30_000, 3);
-        Employee work4 = new Employee(person4, employeeID, 40_000, 4);
-        Employee work5 = new Employee(person5, employeeID, 50_000, 5);
-        System.out.println(work1);
-        System.out.println(work2);
-        System.out.println(work3);
-        System.out.println(work4);
-        System.out.println(work5);
-
+        Employee[] employees = new Employee[10];
+        employees[0] = new Employee("Иван Иванов Иванович", Employee.getCounter(), 10_000, 1);
+        employees[1] = new Employee("Петр Петров Петрович", Employee.getCounter(), 10_000, 2);
+        employees[2] = new Employee("Сидр Сидоров Сидорович", Employee.getCounter(), 10_000, 3);
+        employees[3] = new Employee("Дмитрий Дмитриев Дмитриевич", Employee.getCounter(), 10_000, 4);
+        employees[4] = new Employee("Василий Василенко Васильевич", Employee.getCounter(), 10_000, 5);
+        employees[5] = new Employee("Роман Романов Романович", Employee.getCounter(), 10_000, 5);
+        employees[6] = new Employee("Леонид Даниленко Леонидович", Employee.getCounter(), 10_000, 4);
+        employees[7] = new Employee("Иван Грудов Иванович", Employee.getCounter(), 10_000, 3);
+        employees[8] = new Employee("Виктор Орлов Викторович", Employee.getCounter(), 10_000, 2);
+        employees[9] = new Employee("Вячеслав Рудаков Вячеславович", Employee.getCounter(), 10_000, 1);
+    }
+        public Employee printAllUsers(Employee[] employees) {
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i]);
+        }
     }
 }
