@@ -35,6 +35,7 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
     public int getDepartment() {
         return department;
     }
@@ -45,7 +46,6 @@ public class Employee {
     public String toString() {
         return "Сотрудник: " + fIO + '\'' + ", Табельный номер: " + employeeID + ", Заработная плата: " + String.format("%.2f",salary) + ", номер отдела: " + department;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
