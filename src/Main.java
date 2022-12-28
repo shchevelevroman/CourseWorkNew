@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.stream.Collectors;
 public class Main {
+
     public static Employee[] employees = new Employee[10];
 
     public static void printAllEmployees(Employee[] employees) {
@@ -10,7 +11,7 @@ public class Main {
         }
     }
 
-    public static double printAllSalary(Employee[] employees) {
+    public static double getAllSalary(Employee[] employees) {
         double sum = 0;
         for (Employee employee : employees) {
             sum += employee.getSalary();
@@ -18,7 +19,7 @@ public class Main {
         return sum;
     }
 
-    public static int printMaxSalary(Employee[] employees) {
+    public static int getMaxSalary(Employee[] employees) {
         double max = 0;
         int count = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -29,7 +30,7 @@ public class Main {
         }
         return count;
     }
-    public static int printMinSalary (Employee[] employees){
+    public static int getMinSalary (Employee[] employees){
         double min = employees[0].getSalary();
         int count = 0;
         for (int i =0; i < employees.length; i++) {
@@ -42,7 +43,7 @@ public class Main {
     }
     public static  void printMiddleSalary (Employee [] employees){
         double middleSalary = 0;
-        middleSalary = printAllSalary(employees) / employees.length;
+        middleSalary = getAllSalary(employees) / employees.length;
         System.out.println(middleSalary);
     }
     public static void printFIOEmployees (Employee[] employees){
@@ -70,15 +71,15 @@ public class Main {
         printAllEmployees(employees);
         //Вывод на печать общей суммы зароботной платы
         System.out.print("Вывод на печать общей суммы зароботной платы: ");
-        double allSalary = printAllSalary(employees);
+        double allSalary = getAllSalary(employees);
         System.out.println(allSalary);
         // Вывод на печать сотрудника с максимальной заработной платой
         System.out.print("Вывод на печать сотрудника с максимальной заработной платой: ");
-        int max = printMaxSalary(employees);
+        int max = getMaxSalary(employees);
         System.out.println(employees[max]);
         // Вывод на печать сотрудника с минимальной заработной платой
         System.out.print("Вывод на печать сотрудника с минимальной заработной платой: ");
-        int min = printMinSalary(employees);
+        int min = getMinSalary(employees);
         System.out.println(employees[min]);
         //Вывод на печать общей суммы зароботной платы
         System.out.print("Вывод на печать средней заработной платы: ");
@@ -86,5 +87,7 @@ public class Main {
         //Вывод ФИО всех сотрудников
         System.out.println("Вывод ФИО всех сотрудников:");
         printFIOEmployees(employees);
+        //Индексация зарплат сотрудников
+        System.out.println("Индексация зарплат сотрудников");
     }
 }
